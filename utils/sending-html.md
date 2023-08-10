@@ -19,8 +19,8 @@ app.get('/', () => html(`<p>Hi</p>`));
 If you want to customize the header to be sent, create your own HTML function.
 ```typescript
 const html = createHTML({ status: 404 }); 
-html(`<p>Not found</p>`); // Response
+html(`<p>Not found</p>`); // Return a response
 // Or even static HTML 
 const notFound = createHTML({ status: 404 }, `<p>Not found</p>`);
-notFound(); // Response
+notFound(); // Return a response
 ```

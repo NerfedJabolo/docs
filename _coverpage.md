@@ -7,4 +7,4 @@
 [GitHub](//github.com/bunsvr)
 [Get Started](#stric)
 
-![](_media/bg.webp)
+![](_media/bg3.webp)

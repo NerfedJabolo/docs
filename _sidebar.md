@@ -6,3 +6,5 @@
     * [File streaming](/utils/file-streaming)
     * [Input validation](/utils/input-validation)
     * [Sending HTML](/utils/sending-html)
+    * [Quick response](/utils/quick-response)
+    * [CORS](/utils/cors)
