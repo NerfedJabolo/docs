@@ -104,10 +104,14 @@ app.use(500, /* Handle error using Bun default handler */);
 Guard routes work like wildcard but these routes are invoked first to check whether a specific sub-route should be handled.
 
 ```typescript
-// Return null to tell the router to use the 404 handler
+// Return null to tell the router to use the 404 handler (or reject handler if set)
 app.guard('/admin', ctx => 
     ctx.headers.get('Authorization') === 'admin' || null
 );
+
+// Custom reject handler 
+// If this is not set the app will use the default 404 handler
+app.reject('/admin', () => new Response('Forbidden'));
 ```
 
 ## Plugins
