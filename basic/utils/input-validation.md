@@ -30,6 +30,6 @@ All built-in types are:
 - `bool`: `boolean`
 - `nil`: `null`
 - `undef`: `undefined`
-- `bf`: `Buffer`
+- `buf`: `Buffer`
 
 As of right now arrays are not supported.

@@ -8,7 +8,7 @@ bun add @stricjs/utils
 
 Import in your source file:
 ```typescript
-import { response } from '@stricjs/utils';
+import { response, writeHead } from '@stricjs/utils';
 ```
 
 Here's an example of how to create a bad request response function.
@@ -16,6 +16,12 @@ Here's an example of how to create a bad request response function.
 // Bad request
 const badReq = response('Bad request', { status: 400 });
 badReq(); // Return a response
+```
+
+If you want to customize the response body, use `writeHead` instead.
+```typescript
+const badReq = writeHead({ status: 400 });
+badReq('Bad request'); // Return a response
 ```
 
 
