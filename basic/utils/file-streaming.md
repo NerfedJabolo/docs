@@ -25,8 +25,7 @@ There are two ways to serve a directory.
 Search for path and serve if path does exists when handling requests.
 
 ```typescript
-// Parse path, concat with the directory passed in and start checking
-stream('public');
+app.all('/public/*', dir('./public'));
 ```
 
 ### Static serving
