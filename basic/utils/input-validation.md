@@ -20,8 +20,8 @@ const check = guard({
     address: '?str'
 });
 
-check({ name: 'Reve', age: 15 }); // Yield the object if matches
-check({ name: 'Reve' }); // Return null if not matches
+check({ name: 'Reve', age: 15 }); // Yield the object when matches
+check({ name: 'Reve' }); // Return null when not matches
 ```
 
 All built-in types are:
@@ -30,6 +30,5 @@ All built-in types are:
 - `bool`: `boolean`
 - `nil`: `null`
 - `undef`: `undefined`
-- `buf`: `Buffer`
 
 As of right now arrays are not supported.

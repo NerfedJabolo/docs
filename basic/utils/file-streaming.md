@@ -8,14 +8,14 @@ bun add @stricjs/utils
 
 Import in your source file:
 ```typescript
-import { stream, group } from '@stricjs/utils';
+import { file, dir, group } from '@stricjs/utils';
 ```
 
 ## Serve a file
 This returns a request handler that streams the file.
 ```typescript
 // Return a request handler
-stream('path/to/file');
+file('path/to/file');
 ```
 
 ## Serve a directory
