@@ -17,7 +17,9 @@ const check = guard({
     name: 'str',
     age: 'num',
     // Put a question mark to make a property optional
-    address: '?str'
+    address: '?str',
+    // You can put RegExp to test with `regex.test`
+    type: /^(admin|mod|user)$/
 });
 
 check({ name: 'Reve', age: 15 }); // Yield the object when matches
@@ -30,5 +32,6 @@ All built-in types are:
 - `bool`: `boolean`
 - `nil`: `null`
 - `undef`: `undefined`
+- `email`: An email string
 
 As of right now arrays are not supported.
