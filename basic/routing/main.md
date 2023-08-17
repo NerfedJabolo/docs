@@ -139,6 +139,19 @@ const group = new Group('/json')
 app.plug(group);
 ```
 
+## Aliases
+You can alias handlers from an already-existed path to another path. This basically set specific method handler for that path.
+```typescript
+// Register a `GET` handler for `/`
+app.get('/', macro('Hi'));
+
+// This will not be overritten after the alias
+app.post('/api/new', () => {});
+
+// This copies the `GET` handler to the new path
+app.alias('/api/new', '/');
+```
+
 ## Store 
 Stric has a store for storing utilities and states to use outside of the scope.
 

@@ -13,9 +13,17 @@ Normally a Stric app will parse `ctx.path` and `ctx.query`.
 
 If `parsePath` is set to `false`, parsing `ctx.path` is skipped. 
 
-This option only works with the `base` option set. If not it will throw an `Error`.
 ```typescript
 app.parsePath = false; // Skip slicing `ctx.path`
+```
+
+## Skipping characters
+If `base` is not provided and `parsePath` is `true`, Stric will search for the first `/` character starting from index `12` by default.
+
+To change this behavior, set the `uriLen` to the value you want to search `/`.
+
+```typescript
+app.uriLen = 20;
 ```
 
 ## Macros
