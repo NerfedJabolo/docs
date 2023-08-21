@@ -9,3 +9,4 @@
     * [Quick response](/basic/utils/quick-response)
     * [CORS](/basic/utils/cors)
     * [Clustering](basic/utils/clustering)
+    * [Utilities](basic/utils/more)
