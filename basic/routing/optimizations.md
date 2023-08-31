@@ -41,4 +41,5 @@ app.get('/', macro('Hi'));
 ### Limitations
 - Macros cannot access variables outside its scope. You need to store the states to use in macros.
 - Macros code cannot use `await`. The fetch function is synchronous. You can return a promise, but can't use `await`.
-- Macros need proper parameters name (`r`, `s` or both). Code in macros that directly use the request and store need to have the same name as the variables in `fetch`.
+- Macros need proper parameters name (`r`, `s` or both). Code in macros that directly use the request and 
+store need to have the same name as the variables in `fetch`.

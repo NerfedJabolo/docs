@@ -173,4 +173,16 @@ app.ws({
 });
 ```
 
-WebSocket routes cannot collide with other route handlers of the router, but you can still register route handlers with the same pathname but not `GET` method.
+WebSocket routes cannot collide with other route handlers of the router, but you can still register 
+route handlers with the same pathname but not `GET` method.
+
+## Fetch meta
+To get the fetch meta, use the `meta` getter.
+```typescript
+app.meta;
+```
+
+The fetch meta includes the parameters to put in the scope of the fetch function, 
+the values associated with these params and the fetch function body.
+
+This method should be used for advanced use cases only.

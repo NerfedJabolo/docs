@@ -1,6 +1,7 @@
 * **Basic**
     * [Intro](/#stric)
     * [Routing](/basic/routing/main)
+    * [Testing APIs](/basic/routing/testing)
     * [Optimizations](/basic/routing/optimizations)
     * [Query parsing](/basic/utils/query)
     * [File streaming](/basic/utils/file-streaming)
