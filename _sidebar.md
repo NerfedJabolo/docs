@@ -3,6 +3,7 @@
     * [Routing](/basic/routing/main)
     * [Testing APIs](/basic/routing/testing)
     * [Optimizations](/basic/routing/optimizations)
+* **Utilities**
     * [Query parsing](/basic/utils/query)
     * [File streaming](/basic/utils/file-streaming)
     * [Input validation](/basic/utils/input-validation)
