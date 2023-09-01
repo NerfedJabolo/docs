@@ -81,6 +81,15 @@ app.post('/user/new', ctx => {
 { body: 'none' } // Skip parsing body. This is the default value
 ```
 
+To handle when body parsing failed, call `use(400)` to use the default `400` handler or handle using your own handler.
+```typescript
+// Use the default handler (return only status and no message)
+app.use(400);
+
+// Register your own handler 
+app.use(400, ctx => { /* Handle error and return a response */ });
+```
+
 ## Special handlers
 Stric provides a way to handle `404`.
 ```typescript
