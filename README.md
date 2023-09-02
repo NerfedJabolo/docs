@@ -11,7 +11,7 @@ A framework for building high-performance, scalable web applications.
 
 Stric is one of the fastest JS frameworks. See the [benchmark](//github.com/bunsvr/benchmark) for more details.
 
-[Benchmark compact result](//gist.githubusercontent.com/aquapi/ec3bcae3c0f6ca84309c908d0f51fcc7/raw/955354fd4717d31b06ff2df4c4157a75b0e3f172/compact.txt ':include :type=code')
+[Benchmark compact result](//gist.githubusercontent.com/aquapi/ec3bcae3c0f6ca84309c908d0f51fcc7/raw/compact.txt ':include :type=code')
 
 ## Quick Start
 You need to have [Bun](//bun.sh) installed to use Stric.
