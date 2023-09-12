@@ -51,7 +51,7 @@ mock(app, { logLevel: 0 });
 There are 4 log levels available:
 - `0`: Disable. This is the default value.
 - `1`: Log the pathname that the client is testing.
-- `2`: Log the response returned after each test and the pathname.
+- `2`: Log the fetch function metadata and the pathname.
 - `3`: Log the response returned, the pathname and the fetch function metadata.
 
 Log level below `0` behaves like log level `0` and log level above `3` behaves like log level `3`.

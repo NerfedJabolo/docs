@@ -20,5 +20,4 @@ if (worker) {
 }
 // If this is the main thread spawn 4 instances
 else spawn(4);
-
 ```

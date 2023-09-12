@@ -8,7 +8,7 @@ bun add @stricjs/utils
 
 Import in your source file:
 ```typescript
-import { response, writeHead } from '@stricjs/utils';
+import { response, writeHead, createHead } from '@stricjs/utils';
 ```
 
 Here's an example of how to create a bad request response function.
@@ -24,4 +24,11 @@ const badReq = writeHead({ status: 400 });
 badReq('Bad request'); // Return a response
 ```
 
-
+If you want to customize the head as well, use `createHead`.
+```typescript
+const notAllowed = createHead({ status: 403 });
+notAllowed(null, { 
+    // Just an example :)
+    headers: { 'Authorization': 'Required' } 
+});
+```
