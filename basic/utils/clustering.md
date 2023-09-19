@@ -14,10 +14,9 @@ import { Router, macro } from '@stricjs/router';
 import { spawn, worker } from '@stricjs/cluster';
 
 // Check whether this thread is a worker 
-if (worker) {
-    const app = new Router().get('/', macro('Hi'));
-    Bun.serve(app);
-}
+if (worker) new Router()
+    .get('/', macro('Hi'))
+    .listen();
 // If this is the main thread spawn 4 instances
 else spawn(4);
 ```

@@ -215,3 +215,14 @@ The fetch meta includes the parameters to put in the scope of the fetch function
 the values associated with these params and the fetch function body.
 
 This method should be used for advanced use cases only.
+
+## Start the server 
+There are two ways to start the server.
+```typescript
+// This gets the handler and run it normally
+export default app;
+
+// This run the garbage collector (by default) then 
+// start the server and return the server instance
+app.listen();
+```
