@@ -13,5 +13,4 @@
     * [Clustering](basic/utils/clustering)
     * [Utilities](basic/utils/more)
 * **Guides**
-    * [Read request body](/basic/guides/read-request-body)
     * [Using CORS](/basic/guides/using-cors)
