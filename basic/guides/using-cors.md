@@ -17,19 +17,14 @@ export default new Router()
 
 If no origin or one single origin is provided, parse it as static headers.
 ```
-import { CORS, writeHead, createHead } from '@stricjs/utils'; 
+import { CORS, writeHead } from '@stricjs/utils'; 
 import { Router } from '@stricjs/router';
 
 const cors = new CORS(),
-    // Send additional response options
-    sendWith = createHead(cors.headers),
     // Send a response body only
     send = writeHead(cors.headers);
 
 export default new Router()
-    .get('/', () => send('Hi'))
-    .get('/teapot', () => sendWith('Hi', {
-        status: 418
-        headers: { 'X-Current-Date': new Date().toString() }
-    }))
+    .get('/', () => 'Hi')
+    .wrap('/', send);
 ```

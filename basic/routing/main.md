@@ -47,12 +47,20 @@ To add a handler for all methods, use:
 app.all('/', () => new Response('Hi'));
 ```
 
-This handler will be executed if the current method does not match any of the path handlers with specific methods.
+## Handlers 
+Route handlers have 2 parametes, `ctx` for current request content and `server` for 
+accessing the current running server instance.
+```typescript
+(ctx, server) => {}
+```
+A handler can return anything, including an object and primitives that are not instances of `Response`.
+
+The response then will be wrapped by a wrapper or return directly if a wrapper was not specified.
 
 ## Parametric routes 
 You can parametric routes to retrieve data from URLs.
 
-To access the parsed data use `params` property of the request context. Note that the type is infered automatically so you don't need to.
+To access the parsed data use `params` property of the request context. Note that the type is inferred automatically so you don't need to.
 ```typescript
 app.get('/id/:id', ctx => new Response(ctx.params.id));
 ```
@@ -106,17 +114,39 @@ For error handling, you can register a `500` handler.
 app.use(500);
 
 // Custom handler 
-app.use(500, /* Handle error using Bun default handler */);
+app.use(500, (err, ctx, server) => {
+    // Handle error and return a response
+});
 ```
 
+## Response wrappers
+Response wrappers provide a way to wrap a specific group of subroute responses.
+```typescript
+// Use the default wrapper
+app.get('/', () => 'Hi').wrap('/');
+```
+In the example above, accessing the `/` will return a response with text `Hi`.
+
+A wrapper is a function that accepts up to 3 parameters.
+The first parameter is the response the route returns, and other parameters are the same as handler parameters.
+```typescript
+// Return a response
+(res, ctx, server) => {}
+
+// This is the default wrapper used in the example above 
+res => new Response(res)
+```
+
+If a wrapper is not specified as the second parameter of `wrap`, the default wrapper will be used.
+
 ## Guarding routes 
-Guard routes work like wildcard but these routes are invoked first to check whether a specific sub-route should be handled.
+Guard routes work like wildcard but these routes are invoked first to check whether a specific subroute should be handled.
+
+Guards have the same parameters as a normal route handlers. 
 
 ```typescript
 // Return null to tell the router to use the 404 handler (or reject handler if set)
-app.guard('/admin', ctx => 
-    ctx.headers.get('Authorization') === 'admin' || null
-);
+app.guard('/admin', ctx => ctx.headers.get('Authorization') === 'admin' || null);
 
 // Custom reject handler 
 // If this is not set the app will use the default 404 handler
@@ -159,16 +189,6 @@ app.post('/api/new', () => {});
 
 // This copies the `GET` handler to the new path
 app.alias('/api/new', '/');
-```
-
-## Store 
-Stric has a store for storing utilities and states to use outside of the scope.
-
-```typescript
-app.store('check', str => str === 'admin')
-    .guard('/', (ctx, store) => store.check(
-        ctx.headers.get('Authorization')
-    ));
 ```
 
 ## WebSocket
