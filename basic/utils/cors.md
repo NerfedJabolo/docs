@@ -19,7 +19,8 @@ const cors = new CORS({
     allowCredentials: true // This should be set to a boolean
 });
 
-cors.headers; // Get the parsed headers 
+cors.headers; // Get the parsed headers
+cors.copy(); // Clone the parsed headers
 cors.check('origin'); // Return the headers matching the current origin
 
 const check = cors.create(); // Return a function to assign CORS header to `req.head`
