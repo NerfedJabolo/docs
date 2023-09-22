@@ -81,8 +81,9 @@ app.post('/user/new', ctx => {
     ctx.data;
 }, { body: 'json' });
     
-// More parsers:
-{ body: 'text' } // Parse to JSON
+// Available parsers:
+{ body: 'text' } // Parse to Text
+{ body: 'json' } // Parse to JSON
 { body: 'blob' } // Parse to Blob
 { body: 'form' } // Parse to FormData
 { body: 'buffer' } // Parse to ArrayBuffer
