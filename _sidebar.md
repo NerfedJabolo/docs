@@ -14,3 +14,4 @@
     * [Utilities](basic/utils/more)
 * **Guides**
     * [Using CORS](/basic/guides/using-cors)
+    * [Performance tips][/basic/guides/performance-tips]
