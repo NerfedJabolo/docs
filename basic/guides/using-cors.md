@@ -23,7 +23,7 @@ import { Router } from '@stricjs/router';
 
 const cors = new CORS(),
     // Send a response body only
-    send = writeHead(cors.headers);
+    send = writeHead({ headers: cors.headers });
 
 export default new Router()
     .get('/', () => 'Hi')

@@ -124,7 +124,7 @@ app.use(500, (err, ctx, server) => {
 Response wrappers provide a way to wrap a specific group of subroute responses.
 ```typescript
 // Use the default wrapper
-app.get('/', () => 'Hi').wrap('/');
+app.get('/', () => 'Hi').wrap('/', res => new Response(res));
 ```
 In the example above, accessing the `/` will return a response with text `Hi`.
 
@@ -134,11 +134,35 @@ The first parameter is the response the route returns, and other parameters are 
 // Return a response
 (res, ctx, server) => {}
 
-// This is the default wrapper used in the example above 
+// This is the default wrapper, which is manually specified in the example above 
 res => new Response(res)
 ```
 
 If a wrapper is not specified as the second parameter of `wrap`, the default wrapper will be used.
+
+You can also specify a wrapper for a single route by:
+```typescript
+// Use the default wrapper if set to true or default
+app.get('/', () => 'Hi', { wrap: true });
+```
+
+Note that this wrapper will be prioritized over parent wrappers.
+
+There are built-in response wrappers to make this more convenient.
+- `default`: This wraps the return value of the route with a `Response` object.
+- `json`: This serializes the return value using `JSON.stringify` and wraps with a `Response` object.
+- `send`: This sends metadatas such as `ctx.status`, `ctx.statusText` and `ctx.head` along with the response (You can set it while handling).
+- `sendJSON`: This works like `send` but wraps the return value like the `json` wrapper.
+
+You can specify these built-in wrapper with:
+```typescript
+app.wrap('/', 'send');
+// Or in specific handler
+app.get('/', ctx => {
+    ctx.status = 418;
+    return `I'm a teapot`;
+}, { wrap: 'send' });
+```
 
 ## Guarding routes 
 Guard routes work like wildcard but these routes are invoked first to check whether a specific subroute should be handled.
