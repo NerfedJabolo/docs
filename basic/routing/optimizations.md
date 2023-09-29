@@ -25,7 +25,7 @@ This feature should only be used for small handlers.
 import { macro } from '@stricjs/router';
 
 app.get('/', macro(() => new Response('Hi')));
-// Or shorter (For string response)
+// Or shorter (You can put serializable objects and primitives)
 app.get('/', macro('Hi'));
 ```
 

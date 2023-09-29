@@ -146,6 +146,11 @@ You can also specify a wrapper for a single route by:
 app.get('/', () => 'Hi', { wrap: true });
 ```
 
+To disable wrapping for a specific route:
+```typescript
+app.get('/', () => new Response('Hi'), { wrap: false });
+```
+
 Note that this wrapper will be prioritized over parent wrappers.
 
 There are built-in response wrappers to make this more convenient.
@@ -183,9 +188,7 @@ You can use plugins to modify the app. For example:
 ```typescript
 const plugin = app => app
     .all('/json', () => new Response('Invalid method'))
-    .post('/json', ctx => Response.json(ctx.data), { 
-        body: 'text' 
-    });
+    .post('/json', ctx => ctx.data, { body: 'text', wrap: true });
 
 app.plug(plugin);
 ```
@@ -194,11 +197,10 @@ app.plug(plugin);
 Router groups are plugins designed specifically for registering routes of a specific route.
 ```typescript
 const group = new Group('/json')
-    .all('/', () => new Response('Invalid method'))
-    .get('/get', () => Response.json({ hi: 'there' }))
-    .post('/', ctx => Response.json(ctx.data), {
-        body: 'text'
-    });
+    .all('/', () => new Response('Invalid method'), { wrap: false })
+    .get('/get', () => { hi: 'there' })
+    .post('/', ctx => ctx.data, { body: 'json' })
+    .wrap('/', 'json');
 
 app.plug(group);
 ```
