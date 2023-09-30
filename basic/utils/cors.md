@@ -1,22 +1,26 @@
 # CORS
+
 CORS option parsing and checking origin is built-in to `@stricjs/utils`.
 
 Install `@stricjs/utils` using Bun or your favorite package manager.
+
 ```bash
 bun add @stricjs/utils
 ```
 
-Import in your source file:
+Import your source file:
+
 ```typescript
 import { CORS } from '@stricjs/utils';
 ```
 
-Create a `CORS` object to parse and get headers: 
+Create a `CORS` object to parse and get headers:
+
 ```typescript
 const cors = new CORS({
-    allowOrigins: '*', // Value can be a string or string[] 
-    allowMethods: ['GET', 'POST'], // Also this can be a string
-    allowCredentials: true // This should be set to a boolean
+  allowOrigins: '*', // Value can be a string or string[]
+  allowMethods: ['GET', 'POST'], // Also this can be a string
+  allowCredentials: true, // This should be set to a boolean
 });
 
 cors.headers; // Get the parsed headers
@@ -33,4 +37,3 @@ cors.guard('/');
 ```
 
 The options name are the same as other `cors` libraries you used before.
-
