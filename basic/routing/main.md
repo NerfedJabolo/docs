@@ -206,7 +206,7 @@ There are built-in response wrappers to make this more convenient.
 - `default`: This wraps the return value of the route with a `Response` object.
 - `json`: This serializes the return value using `JSON.stringify` and wraps it with a `Response` object.
 - `send`: This sends metadata such as `ctx.status`, `ctx.statusText` and `ctx.head` along with the response (You can set it while handling).
-- `sendJSON`: This works like `send` but wraps the return value like the `json` wrapper.
+- `sendj`: This works like `send` but wraps the return value like the `json` wrapper.
 
 You can specify these built-in wrappers with:
 
