@@ -14,9 +14,11 @@ Stric is one of the fastest JS frameworks. See the [benchmark](//github.com/buns
 [Benchmark compact result](//gist.githubusercontent.com/aquapi/ec3bcae3c0f6ca84309c908d0f51fcc7/raw/compact.txt ':include :type=code')
 
 ## Quick Start
+
 You need to have [Bun](//bun.sh) installed to use Stric.
 
 Create a new project and install the router.
+
 ```bash
 # Create an empty project
 bun init
@@ -26,10 +28,11 @@ bun add @stricjs/router
 ```
 
 After installing, you can start writing a simple server at `index.ts`.
+
 ```typescript
 import { Router } from '@stricjs/router';
 
-// This will respond 'Hi' on every request to path '/'
+// This will respond with 'Hi' on every request to path '/'
 export default new Router().get('/', () => new Response('Hi'));
 ```
 
